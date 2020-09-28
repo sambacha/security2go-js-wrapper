@@ -1,0 +1,14 @@
+# travis 
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t sambacha/security2go-js-wrapper .
+  - docker run -d -p 127.0.0.1:8080 sambacha/security2go-js-wrapper  /bin/sh -c "cd /usr/src/app; npm install;"
+  - docker ps -a
+
+script:
+  - true
