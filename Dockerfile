@@ -5,7 +5,7 @@ ARG $VCS
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 RUN apt-get -qq update && \
-    apt-get -qq -y --no-install-recommends apt-get install libpcsclite1 libpcsclite-dev install gnupg software-properties-common locales curl gcc g++ make && \
+    apt-get -qq -y --no-install-recommends libpcsclite1 libpcsclite-dev install gnupg software-properties-common locales curl gcc g++ make && \
     locale-gen en_US.UTF-8 && \
     apt-get -qq update && \
     apt-get -qq -y dist-upgrade && \
