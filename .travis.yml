@@ -1,0 +1,31 @@
+
+os: linux
+dist: xenial
+
+language: node_js
+node_js:
+  - "10"
+env:
+  - CXX=g++-4.8
+services:
+  - xvfb
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+env:
+  global:
+    - DISPLAY=:99.0
+  matrix:
+    - CXX=g++-4.8 TEST_SUITE=test:node
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      node_js: "10"
+      env: CXX=g++-4.8 
+before-install: wget http://mirrors.kernel.org/ubuntu/pool/main/p/pcsc-lite/libpcsclite-dev_1.8.23-1_amd64.deb && sudo dpkg -i libpcsclite-dev_1.8.23-1_amd64.deb
+script: npm install && npm start
+
