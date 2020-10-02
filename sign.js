@@ -90,7 +90,7 @@ async function sign(web3, rawTx, secondTx) {
 
   return toHex(serializedTx);
 }
-
+/**
 const web3 = new Web3("wss://ws.sigma1.artis.network");
 
 const rawTxOpen = {
@@ -163,6 +163,7 @@ async function start() {
 }
 
 //start();
+*/
 
 module.exports = {
   takeCard,
